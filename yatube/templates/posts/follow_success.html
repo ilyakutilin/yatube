@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Подписка прошла успешно{% endblock %}
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-md-8 p-5">
+      <div class="card">
+        <div class="card-header">
+          {% block heading %}Подписка прошла успешно{% endblock %}
+        </div>
+        <div class="card-body"> 
+          <p>{% block result %}Вы успешно подписались на автора 
+            {% if author.get_full_name == '' %}
+                  {{ author }}
+                {% else %}
+                  {{ author.get_full_name }}
+                {% endif %}
+            {% endblock %}
+          </p>
+          {% block link %}
+            <p>Через 5 секунд вы будете перенаправлены на страницу профиля этого автора.</p>
+            <p>Если этого не произошло, пройдите по <a href="{% url 'posts:profile' author.username %}">ссылке</a>
+            <meta http-equiv="refresh" content="5;url={% url 'posts:profile' author.username %}">
+          {% endblock %}
+        </div> <!-- card body -->
+      </div> <!-- card -->
+    </div> <!-- col -->
+  </div> <!-- row -->
+{% endblock %}

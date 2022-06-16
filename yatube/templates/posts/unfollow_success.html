@@ -1,0 +1,15 @@
+{% extends "posts/follow_success.html" %}
+{% block title %}Отписка прошла успешно{% endblock %}
+{% block heading %}Отписка прошла успешно{% endblock %}
+{% block result %}Вы успешно отписались от автора 
+  {% if author.get_full_name == '' %}
+    {{ author }}
+  {% else %}
+    {{ author.get_full_name }}
+  {% endif %}
+{% endblock %}
+{% block link %}
+  <p>Через 5 секунд вы будете перенаправлены на главную страницу.</p>
+  <p>Если этого не произошло, пройдите по <a href="{% url 'posts:index' %}">ссылке</a>
+  <meta http-equiv="refresh" content="5;url={% url 'posts:index' %}">
+{% endblock %}

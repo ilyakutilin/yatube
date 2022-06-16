@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Под капотом{% endblock %}
+{% block content %}
+<div class="row">
+  <aside class="col-12 col-md-3">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <a class="nav-link" href='https://www.python.org/'>PYTHON</a>
+      </li>
+      <li class="list-group-item">
+        <a class="nav-link" href='https://www.djangoproject.com/'>DJANGO</a>
+      </li>
+      <li class="list-group-item">
+        <a class="nav-link" href='https://www.sqlite.org/index.html'>SQLITE</a>
+      </li>
+      <li class="list-group-item">
+        <a class="nav-link" href='https://getbootstrap.com/'>BOOTSTRAP</a>
+      </li>
+    </ul>
+  </aside>
+  <article class="col-12 col-md-9">
+    <h2>ИСПОЛЬЗОВАННЫЕ ТЕХНОЛОГИИ</h2>
+    <br>
+    <div class="row">
+      <div class="col-3">
+        <a href='https://www.python.org/'><img src="{% static 'img/python_logo.png' %}" class="img-fluid" alt="Responsive image"></a>
+      </div>
+      <div class="col-9">
+        <h5>PYTHON</h5>
+        <p>Ничего не работает.<br>
+          Ты прочитал всю документацию, всё, что имело и не имело отношения к проблеме. Ответа не нашел.<br>
+          Slack, Stackoverflow, гугл - все бессильны.<br>
+          Ты перечитал всю теорию и в итоге начал сомневаться в адекватности мира.<br>
+          Вдруг ты заметил, что в одном месте не хватает запятой. Ты ее поставил и всё заработало.<br>
+          Твои эмоции в тот момент бесценны.</p>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-3">
+        <a href='https://www.djangoproject.com/'><img src="{% static 'img/django_logo.png' %}" class="img-fluid" alt="Responsive image"></a>
+      </div>
+      <div class="col-9">
+        <h5>DJANGO</h5>
+        <p>В какой я сейчас вьюхе?<br>
+          Это urls проекта или приложения?<br>
+          А какого приложения?<br>
+          А это нужно регистрировать в settings.py?<br>
+          Я забыл весь синтаксис в шаблонах.<br>
+          Где я?</p>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-3">
+        <a href='https://www.sqlite.org/index.html'><img src="{% static 'img/sqlite_logo.png' %}" class="img-fluid" alt="Responsive image"></a>
+      </div>
+      <div class="col-9">
+        <h5>SQLITE</h5>
+        <p>Когда-нибудь я вспомню, как делать запросы в БД напрямую.</p>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-3">
+        <a href='https://getbootstrap.com/'><img src="{% static 'img/bootstrap_logo.png' %}" class="img-fluid" alt="Responsive image"></a>
+      </div>
+      <div class="col-9">
+        <h5>BOOTSTRAP</h5>
+        <p>Приятно, когда кто-то другой всё сделал за тебя.</p>
+      </div>
+    </div>
+  </article>
+</div>
+{% endblock %} 
