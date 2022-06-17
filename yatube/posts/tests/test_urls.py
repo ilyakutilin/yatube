@@ -53,9 +53,9 @@ class PostURLTests(TestCase):
         }
         cls.follow_redirects = {
             '/profile/author/follow/': (f'/profile/{cls.author.username}/'
-                                        'follow/success'),
+                                        'follow/success/'),
             '/profile/author/unfollow/': (f'/profile/{cls.author.username}/'
-                                          'unfollow/success'),
+                                          'unfollow/success/'),
         }
 
     def setUp(self):

@@ -30,7 +30,7 @@ urlpatterns = [
         name='profile_follow'
     ),
     path(
-        'profile/<str:username>/follow/success',
+        'profile/<str:username>/follow/success/',
         views.profile_follow_success,
         name='profile_follow_success'
     ),
@@ -40,7 +40,7 @@ urlpatterns = [
         name='profile_unfollow'
     ),
     path(
-        'profile/<str:username>/unfollow/success',
+        'profile/<str:username>/unfollow/success/',
         views.profile_unfollow_success,
         name='profile_unfollow_success'
     ),

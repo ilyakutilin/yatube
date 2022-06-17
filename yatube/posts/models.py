@@ -113,3 +113,15 @@ class Follow(models.Model):
         verbose_name='Автор',
         help_text='Автор, на которого подписываются'
     )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                name='posts_follow_unique_relationships',
+                fields=['user', 'author'],
+            ),
+            models.CheckConstraint(
+                name='posts_follow_prevent_self_follow',
+                check=~models.Q(user=models.F("author")),
+            )
+        ]

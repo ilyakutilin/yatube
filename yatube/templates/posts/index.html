@@ -5,14 +5,12 @@
 {% block content %}
   {% include 'posts/includes/switcher.html' %}
   <h1>{% block h1 %}Последние обновления на сайте{% endblock %}</h1>
-  <article>
-    {% for post in page_obj %}
-      {% include 'posts/includes/post_list.html' %}
-      {% if post.group %}
-        <a href="{% url 'posts:group_posts' post.group.slug %}">все записи группы</a>
-      {% endif %}
-      {% if not forloop.last %}<hr>{% endif %}
-    {% endfor %}
-    {% include 'includes/paginator.html' %}
-  </article>
+  {% for post in page_obj %}
+    {% include 'posts/includes/post_list.html' %}
+    {% if post.group %}
+      <a href="{% url 'posts:group_posts' post.group.slug %}">все записи группы</a>
+    {% endif %}
+    {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %}
+  {% include 'includes/paginator.html' %}
 {% endblock %}
