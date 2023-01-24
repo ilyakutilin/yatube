@@ -1,0 +1,15 @@
+*.pyc
+*.pyo
+*.mo
+*.db
+*.sqlite3
+.idea
+.DS_Store
+__pycache__
+env/
+venv/
+logs/
+dump.json
+sent_emails/
+htmlcov/
+Dockerfile

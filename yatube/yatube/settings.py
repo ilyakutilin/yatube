@@ -1,18 +1,20 @@
 import os
 
+from dotenv import load_dotenv
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+dotenv_file = os.path.abspath(os.path.join(BASE_DIR, "../.env"))
+if os.path.isfile(dotenv_file):
+    load_dotenv(dotenv_file)
 
-SECRET_KEY = 'm45pt2hc)hs9tu!!_-dj)+6%w#xoo((ie8p#rdw@t0fkce^m3z'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '[::1]',
-    'testserver',
-]
+SERVER_URL = os.getenv('SERVER_URL')
+SERVER_IP = os.getenv('SERVER_IP')
+ALLOWED_HOSTS = [SERVER_URL, SERVER_IP, 'localhost', '127.0.0.1']
 
 
 INSTALLED_APPS = [
@@ -61,13 +63,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'yatube.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.getenv('DB_ENGINE', default='django.db.backends.postgresql'),
+#         'NAME': os.getenv('POSTGRES_DB', default='postgres'),
+#         'USER': os.getenv('POSTGRES_USER', default='postgres'),
+#         'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='postgrespswd'),
+#         'HOST': os.getenv('DB_HOST', default='db'),
+#         'PORT': os.getenv('DB_PORT', default='5432')
+#     }
+# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -88,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -98,7 +110,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 LOGIN_URL = 'users:login'
@@ -109,9 +124,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
 
 CSRF_FAILURE_VIEW = 'core.views.csrf_failure'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CACHES = {
     'default': {
