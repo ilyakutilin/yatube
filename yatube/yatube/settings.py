@@ -154,7 +154,7 @@ LOGGING = {
         },
         'file': {
             'level': 'INFO',
-            'class': 'logging.RotatingFileHandler',
+            'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'file',
             'filename': 'yatube_django.log',
             'maxBytes': 10**6,
